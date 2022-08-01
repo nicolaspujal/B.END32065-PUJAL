@@ -24,7 +24,7 @@ const product = new Contenedor('./productos.txt');
 async function verProductos() {
     return await product.getAll();
 };
-app.get('/productos', async (req , res) => {
+app.get('/productos', async(req , res) => {
     res.send(await verProductos());
 });
 

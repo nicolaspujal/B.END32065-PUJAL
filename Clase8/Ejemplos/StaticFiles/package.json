@@ -1,12 +1,15 @@
 {
-  "name": "clase4",
+  "name": "staticfiles",
   "version": "1.0.0",
   "description": "",
-  "main": "ejemploAsync.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "CODER",
-  "license": "ISC"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }

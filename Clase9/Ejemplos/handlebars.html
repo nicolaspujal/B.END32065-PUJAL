@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- script handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
+    <span></span>
+
+    <!-- script para reemplazar el span con lo declarado en template -->
+    <script>
+        const template = Handlebars.compile(`<h1>Datos Personales</h1>
+<ul>
+  <li>{{nombre}}</li>
+  <li>{{apellido}}</li>
+  <li>{{edad}}</li>
+  <li>{{email}}</li>
+  <li>{{telefono}}</li>
+</ul>`
+);
+        const html = template({ 
+            nombre: 'Nicolas',
+            apellido: 'Pujal',
+            edad: 25,
+            email: 'a@a.com',
+            telefono: 1234567890
+     });
+        document.querySelector('span').innerHTML = html;
+    </script>
+</body>
+</html>

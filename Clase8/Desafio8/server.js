@@ -4,6 +4,7 @@ const { Router } = express;
 const app = express();
 
 
+
 //para usar el html de /public
 app.use(express.static('public'));
 
@@ -34,21 +35,18 @@ routerProductos.get('/', (req,res)=>{
 
 //contenedor con los metodos
 const Contenedor = require('./api/Contenedor.js');
-
-
+const product = new Contenedor('./api/productos.txt');
 
 
 
 //funcion productos
 
-routerProductos.get('/productos', async(req,res)=>{
-
-    const product = new Contenedor('./productos.txt');
-
-    res.send(await product.getAll())
-
+async function verProductos() {
+    return await product.getAll();
+};
+routerProductos.get('/productos', async (req,res) =>{ 
+     res.json(await verProductos());
 });
-
 
 
 
@@ -59,13 +57,16 @@ async function productoID(id){
     return await product.getById(id);
 };
 
-routerProductos.get('/productos/:id', async(req,res)=>{
+routerProductos.get('/productos/:id' , async (req,res) =>{
+    const { id } = req.params ;
 
-    const { id } = req.params;
-
-    await productoID(id) ? res.json(await productoID(id)) : res.json({error});
-});
-
+    if(await productoId(id)) {
+        res.json(await productoId(id));
+        console.log(await productoId(id));
+    } else {
+        res.json({error});
+    }
+})
 
 
 
@@ -117,7 +118,7 @@ routerProductos.put('/productos/:id', async(req,res)=>{
     }else{res.sendStatus(400);}
 });
 
-
+//
 
 
 

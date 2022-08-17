@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include('../partials/head.ejs'); %>
+
+</head>
+<body class="container">
+
+    <header>
+    <%- include('../partials/header.ejs'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h2>Variable</h2>
+            <p>
+                <%= tagline %>
+            </p>
+
+            <ul>
+                 <% pets.forEach((pet) =>{ %>
+                <li>
+                    <strong>
+                        <%= pet.name %>
+                    </strong> representa a <%= pet.organization %>, nacio en <%= pet.birt_year %>
+                </li>
+                <% }); %>
+            </ul>
+
+        </div>
+    </main>
+
+    <footer>
+    <%- include('../partials/footer.ejs'); %>
+    </footer>
+
+</body>
+</html>

@@ -23,7 +23,7 @@ class Contenedor{
             let arrayLength = prodObj.length;
             obj.id = arrayLength + 1;
             obj.price = parseInt(obj.price);
-            prodsObj.push(obj);
+            prodObj.push(obj);
             const objeto = JSON.stringify(prodObj);
 
             await fs.writeFile(this.ruta, objeto);
